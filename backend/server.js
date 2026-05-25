@@ -25,7 +25,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://tu-frontend.vercel.app", // reemplaza con tu dominio real cuando lo subas
+    "https://eventorproducciones-lht5pcic7-sandredev-projects.vercel.app", 
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
