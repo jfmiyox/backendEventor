@@ -26,6 +26,7 @@ const corsOptions = {
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://eventorproducciones-lht5pcic7-sandredev-projects.vercel.app", 
+    "https://eventorproducciones.vercel.app",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
