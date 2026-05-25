@@ -25,23 +25,20 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://tu-frontend.vercel.app", // cuando lo subas
+    "https://tu-frontend.vercel.app", // reemplaza con tu dominio real cuando lo subas
   ],
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 };
 
-
-
 const app = express()
-app.use(cors(corsOptions));
 
+
+app.options('*', cors(corsOptions))
+app.use(cors(corsOptions))
 
 app.use(express.json())
-
-app.use((req, res, next) => {
-  next()
-})
 
 app.use('/api/auth', authRoutes);
 app.use('/api', testRoutes);
@@ -52,16 +49,15 @@ app.use('/api/events', eventRoutes);
 app.use("/api", reviewRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api/marcas", marcasRoutes);
-app.use("/api", modelsRoutes);  
-app.use("/api",generoRoutes);
-app.use("/api",paisesRoutes);
+app.use("/api", modelsRoutes);
+app.use("/api", generoRoutes);
+app.use("/api", paisesRoutes);
 app.use("/api", ciudadRoutes);
 app.use("/api", rolesRoutes);
 app.use("/api", userRoutes);
 app.use("/api/direcciones", direccionRoutes);
 app.use('/api', reserverRoutes);
 app.use('/api', tipoEventoRoutes);
-
 
 app.get('/', (req, res) => {
   res.json({ message: 'Servidor funcionando correctamente' })
