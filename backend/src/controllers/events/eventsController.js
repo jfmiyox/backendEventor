@@ -125,9 +125,6 @@ export const getEventsById = async (req, res) => {
                 estado,
                 valor_total,
                 activo,
-                empleados(
-                    nombre
-                ),
                 tipos_evento(
                     nombre_tipo
                 ),
@@ -196,7 +193,6 @@ export const getEventsById = async (req, res) => {
             codigo_interno: evento.codigo_interno,
             aforo_estimado: evento.aforo_estimado,
             tipo_evento: evento.tipos_evento?.nombre_tipo,
-            coordinador: evento.empleados?.nombre,
             nombre: evento.nombre_evento,
             descripcion: evento.descripcion,
             unidad_medida: evento.unidad_medida,
